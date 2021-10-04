@@ -1,0 +1,62 @@
+*vim-smoosh.txt* Smoosh lines multiple lines into one.
+
+Author:  Joe Ellis
+License: Same terms as Vim itself (see |license|)
+
+
+INTRODUCTION                                    *smoosh*
+
+This plugin adds a command and an operator for smooshing multiple lines into
+one.
+
+As a small example:
+>
+    foo bar
+                     baz quux
+             test
+<
+... can be smooshed into:
+>
+    foo bar  test    baz quux
+<
+
+This is useful for some text formatting tasks. Contents tables, such as:
+>
+    1 ............................................. Introduction
+    2 ....................................... The Second Chapter
+    3 ........................................ The Third Chapter
+<
+... can be built more easily with this plugin.
+
+
+COMMANDS                                        *smoosh-commands*
+
+The plugin defines just one command.
+
+                                                *:Smoosh*
+:[range]Smoosh {ignored_characters}
+
+Smooshes the lines specified by [range] into a single line. If no range is
+specified, it smooshes the line below the cursor into the current line.
+
+{ignored_characters} represents the set of characters to ignore while
+smooshing. Ignored characters will never overwrite other characters when
+smooshing. By default, {ignored_characters} is " " -- the space character.
+
+
+OPERATORS                                       *smoosh-operators*
+
+The plugin defines just one operator. It is exposed as:
+>
+    <Plug>(smoosh)
+<
+... so you can add your own binding to use the smoosh operator like so:
+>
+    nmap YOUR_BINDING <Plug>(smoosh)
+<
+
+ISSUES                                          *smoosh-issues*
+
+Raise an issue on GitHub if something's wrong.
+
+ vim:tw=78:ts=8:ft=help:norl:
